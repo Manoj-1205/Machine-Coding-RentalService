@@ -1,5 +1,6 @@
 package com.machinecoding.carrentalsystem.service;
 
+import com.machinecoding.carrentalsystem.Exceptions.UserNotFoundException;
 import com.machinecoding.carrentalsystem.models.User;
 import com.machinecoding.carrentalsystem.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -11,5 +12,9 @@ public class UserService {
     private UserRepository userRepository;
     public User createUser(User user){
         return userRepository.save(user);
+    }
+
+    public User findUser(Long id){
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not registered"));
     }
 }

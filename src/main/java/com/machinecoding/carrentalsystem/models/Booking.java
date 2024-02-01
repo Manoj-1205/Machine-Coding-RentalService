@@ -3,12 +3,18 @@ package com.machinecoding.carrentalsystem.models;
 import com.machinecoding.carrentalsystem.enums.BookingStatus;
 import com.machinecoding.carrentalsystem.enums.City;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Booking extends BaseClass {
 
     //Uni-directional relationship

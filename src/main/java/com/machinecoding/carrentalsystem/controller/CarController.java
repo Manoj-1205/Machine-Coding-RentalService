@@ -4,6 +4,7 @@ import com.machinecoding.carrentalsystem.dtos.CarRequest;
 import com.machinecoding.carrentalsystem.enums.City;
 import com.machinecoding.carrentalsystem.models.Car;
 import com.machinecoding.carrentalsystem.service.CarService;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 public class CarController {
     private CarService carService;
     @PostMapping("/addCar")
+
     public Car addCar(@RequestBody  CarRequest request){
         Car car = request.toCar();
         return carService.addCar(car);
